@@ -1,49 +1,64 @@
-# Game Finder
+#  Game Finder
 
 ---
 
-## Project Concept
+##  Project Description
 
-Game Finder is a web application that allows users to search for classic and modern video games. It uses a public API to display game details like images, ratings, and names in a clean and interactive interface.
+Game Finder is a web application that allows users to search for classic and modern video games. The main purpose of this project is to practice working with APIs and building an interactive user interface using JavaScript.
+
+Users can explore games, view ratings, and save their favorite games directly in the browser.
 
 ---
 
-## Used API
+##  API Used
 
 * **RAWG API**: [https://rawg.io/apidocs](https://rawg.io/apidocs)
-  Provides game data such as titles, images, ratings, and platforms.
+  This API provides game data such as names, images, ratings, and platform details.
 
 ---
 
-## Scheduled Features
+##  Features
 
-* 🔍 Search games by name
+* 🔍 Search games by name (with debounce for better performance)
 * 🎮 Display games in a responsive grid layout
-* ⭐ Add games to Favorites (stored in browser)
-* ⚡ Debounce search for better performance
-* 📂 Sidebar for favorite games
+* ⭐ Add games to Favorites (stored using localStorage)
+* 📂 Sidebar to view saved favorite games
 
 ---
 
-## Technologies
+##  Technologies Used
 
-* **HTML**
-* **CSS**
-* **JavaScript (Fetch API)**
-
----
-
-## Project Objective
-
-This project is created to practice:
-
-* API integration
-* JavaScript concepts (DOM, events, async)
-* UI design and responsiveness
+* **HTML** – Structure of the web page
+* **CSS** – Styling and layout
+* **JavaScript** – Logic, API calls, and interactivity
 
 ---
 
-## Developer
+## ⚙️ Setup & Run
+
+1. Download or clone the project
+2. Get your API key from: [https://rawg.io/apidocs](https://rawg.io/apidocs)
+3. Open `script.js` and add your API key:
+
+```js
+const API_KEY = "YOUR_API_KEY";
+```
+
+4. Open `index.html` in your browser
+
+---
+
+##  Project Goal
+
+The goal of this project is to:
+
+* Learn API integration
+* Practice JavaScript concepts (DOM, events, async/await)
+* Build a responsive and interactive UI
+
+---
+
+##  Developer
 
 * **Ankit Pandit**
 
