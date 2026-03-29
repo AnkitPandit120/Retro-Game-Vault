@@ -1,0 +1,14 @@
+#Games {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+.game-card img {
+    width: 100%;
+}
+.game-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
