@@ -32,15 +32,27 @@ function displayGames(games) {
 
 
 function searchGames() {
-    let input = document.getElementById("searchBar").value.toLowerCase();
+    applyFilters();
+}
 
-    let filtered = allGames.filter(game =>
-        game.name.toLowerCase().includes(input)
-    );
+function filterByGenre() {
+    applyFilters();
+}
+
+function applyFilters() {
+    let searchInput = document.getElementById("searchBar").value.toLowerCase();
+    let selectedGenre = document.getElementById("genreFilter").value;
+
+    let filtered = allGames.filter(game => {
+        let matchesSearch = game.name.toLowerCase().includes(searchInput);
+        let matchesGenre = selectedGenre === "all" ||
+            (Array.isArray(game.genres) && game.genres.some(g => g.slug === selectedGenre));
+
+        return matchesSearch && matchesGenre;
+    });
 
     displayGames(filtered);
 }
-
 
 function loadMore() {
     currentPage++;

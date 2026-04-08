@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +12,18 @@
     <p>Discover a collection of classic games from the past. Relive the nostalgia and enjoy timeless gaming experiences.</p>
     <button id="themeToggle">🌙 Dark Mode</button>
     <input type="text" id="searchBar" placeholder="Search games..." onkeyup="searchGames()" />
+    <div class="filter-row">
+        <label for="genreFilter">Filter:</label>
+        <select id="genreFilter">
+            <option value="all">All Genres</option>
+            <option value="action">Action</option>
+            <option value="adventure">Adventure</option>
+            <option value="rpg">RPG</option>
+            <option value="shooter">Shooter</option>
+            <option value="strategy">Strategy</option>
+        </select>
+        <button id="filterBtn" onclick="filterByGenre()">Filter</button>
+    </div>
     <div id="Games"></div>
     <button onclick="loadMore()" id="loadMoreBtn">Load More</button>
     
