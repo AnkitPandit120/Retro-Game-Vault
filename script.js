@@ -1,13 +1,18 @@
-async function fetchData(){
-    let res= await fetch(`https://api.rawg.io/api/games?key=0a4e17ae0a3c4454abc1fd8a2b7b5d50`)
-    let data= await res.json()
-    let game_list=data["results"]
-    console.log(game_list)
+let allGames = []; 
 
-    let container = document.getElementById("Games")
+async function fetchData() {
+    let res = await fetch(`https://api.rawg.io/api/games?key=0a4e17ae0a3c4454abc1fd8a2b7b5d50`);
+    let data = await res.json();
 
+    allGames = data.results; 
+    displayGames(allGames);
+}
 
-    for (let game of game_list) {
+function displayGames(games) {
+    let container = document.getElementById("Games");
+    container.innerHTML = "";
+
+    for (let game of games) {
         let Game = document.createElement("div");
         Game.classList.add("game-card");
 
@@ -15,12 +20,23 @@ async function fetchData(){
             <img src="${game.background_image}" alt="${game.name}" />
 
             <div class="game-info">
-                <p class="rating">⭐ ${game.rating}</p>
-                <h3>${game.name}</h3>
+                <p class="rating">⭐️ ${game.rating}</p>
+                <h3 class="game-title">${game.name}</h3>
                 <button class="more-btn">More</button>
             </div>
         `;
         container.appendChild(Game);
     }
 }
-fetchData()
+
+function searchGames() {
+    let input = document.getElementById("searchBar").value.toLowerCase();
+
+    let filtered = allGames.filter(game =>
+        game.name.toLowerCase().includes(input)
+    );
+
+    displayGames(filtered);
+}
+
+fetchData();
