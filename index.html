@@ -8,12 +8,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Welcome to the Retro Game Vault!</h1>
-    <p>Discover a collection of classic games from the past. Relive the nostalgia and enjoy timeless gaming experiences.</p>
-    <button id="themeToggle">🌙 Dark Mode</button>
-    <input type="text" id="searchBar" placeholder="Search games..." onkeyup="searchGames()" />
+    <div class="hero">
+        <div class="hero-text">
+            <h1>Retro Game Vault</h1>
+            <p>Find classic games fast with search, filters, and quick access to detailed game info.</p>
+        </div>
+        <div class="hero-controls">
+            <div class="search-wrapper">
+                <input type="text" id="searchBar" placeholder="Search games..." onkeyup="searchGames()" />
+                <button id="searchBtn" onclick="searchGames()">Search</button>
+            </div>
+            <button id="themeToggle">🌙 Dark Mode</button>
+        </div>
+    </div>
     <div class="filter-row">
-        <label for="genreFilter">Filter:</label>
+        <label for="genreFilter">Genre</label>
         <select id="genreFilter">
             <option value="all">All Genres</option>
             <option value="action">Action</option>
@@ -22,7 +31,7 @@
             <option value="shooter">Shooter</option>
             <option value="strategy">Strategy</option>
         </select>
-        <button id="filterBtn" onclick="filterByGenre()">Filter</button>
+        <button id="filterBtn" onclick="filterByGenre()">Apply Filter</button>
     </div>
     <div id="Games"></div>
     <button onclick="loadMore()" id="loadMoreBtn">Load More</button>

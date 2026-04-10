@@ -8,10 +8,14 @@ const modalDetails = document.getElementById("modalDetails");
 const closeModalBtn = document.getElementById("closeModal");
 const toggleBtn = document.getElementById("themeToggle");
 
-async function fetchData(page = 1) {
+async function fetchPageData(page = 1) {
     const res = await fetch(`https://api.rawg.io/api/games?key=${API_KEY}&page=${page}`);
     const data = await res.json();
-    const newGames = data.results;
+    return data.results;
+}
+
+async function fetchData(page = 1) {
+    const newGames = await fetchPageData(page);
     allGames = [...allGames, ...newGames];
 
     displayGames(allGames);
@@ -99,6 +103,16 @@ function loadMore() {
     fetchData(currentPage);
 }
 
+async function loadInitialPages() {
+    for (let page = 1; page <= 3; page++) {
+        const newGames = await fetchPageData(page);
+        allGames = [...allGames, ...newGames];
+    }
+
+    currentPage = 3;
+    displayGames(allGames);
+}
+
 gameContainer.addEventListener("click", event => {
     const button = event.target.closest(".more-btn");
     if (!button) return;
@@ -122,4 +136,4 @@ toggleBtn.addEventListener("click", () => {
         : "🌙 Dark Mode";
 });
 
-fetchData();
+loadInitialPages();
