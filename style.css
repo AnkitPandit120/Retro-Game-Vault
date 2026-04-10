@@ -87,6 +87,62 @@ body.dark .game-card {
     background: #1e1e1e;
 }
 
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 1000;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    width: min(90vw, 600px);
+    max-height: 90vh;
+    overflow-y: auto;
+    background: #111;
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: 0 16px 45px rgba(0, 0, 0, 0.35);
+    color: white;
+    position: relative;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+}
+
+.modal-content p,
+.modal-content ul {
+    margin: 12px 0;
+    line-height: 1.6;
+}
+
+.close-btn {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background: #333;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.modal-content img {
+    width: 100%;
+    border-radius: 14px;
+    margin-bottom: 16px;
+}
 
 #themeToggle {
     position: absolute;
